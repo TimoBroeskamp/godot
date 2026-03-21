@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0tkiu652amdx"]
+
+[ext_resource type="Texture2D" uid="uid://bvhrbudhfluj2" path="res://icon.svg" id="1_scdva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnlrw"]
+size = Vector2(117, 119)
+
+[sub_resource type="GDScript" id="GDScript_scdva"]
+script/source = "extends CharacterBody2D
+
+const SPEED = 350.0
+
+func _physics_process(delta) -> void:
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var xDirection := Input.get_axis(\"ui_left\", \"ui_right\")
+	var yDirection := Input.get_axis(\"ui_up\", \"ui_down\")
+	if xDirection:
+		velocity.x = xDirection * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if yDirection:
+		velocity.y = yDirection * SPEED
+	else:
+		velocity.y = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scdva"]
+size = Vector2(13.315219, 52)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(130, 600)
+scale = Vector2(3.679999, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-35.326096, -306.99997)
+scale = Vector2(0.114934, 5.708674)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-1, 0)
+scale = Vector2(0.984375, 1)
+texture = ExtResource("1_scdva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_gnlrw")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(124.18481, 44.000004)
+scale = Vector2(3.2813966, 0.6148023)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(-1, 0)
+scale = Vector2(0.984375, 1)
+texture = ExtResource("1_scdva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_gnlrw")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(278.26093, -295.99997)
+scale = Vector2(0.08696995, 6.5784163)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(-1, 0)
+scale = Vector2(0.984375, 1)
+texture = ExtResource("1_scdva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_gnlrw")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(118.20654, -600)
+scale = Vector2(2.9105375, 0.25865662)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+position = Vector2(-1, 0)
+scale = Vector2(0.984375, 1)
+texture = ExtResource("1_scdva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_gnlrw")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(122.8261, -158.99998)
+script = SubResource("GDScript_scdva")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.114487775, 0.43014315)
+texture = ExtResource("1_scdva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.13587189, 0)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_scdva")
