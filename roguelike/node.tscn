@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0tkiu652amdx"]
+[gd_scene load_steps=5 format=3 uid="uid://bw1f3x8ar72h1"]
 
-[ext_resource type="Texture2D" uid="uid://bvhrbudhfluj2" path="res://Images/icon.svg" id="1_scdva"]
-[ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://Gun.tscn" id="2_gnlrw"]
+[ext_resource type="Texture2D" uid="uid://bvhrbudhfluj2" path="res://Images/icon.svg" id="1_sy5k4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnlrw"]
 size = Vector2(117, 119)
@@ -18,70 +17,66 @@ func _process(delta: float) -> void:
 func get_input() -> void:
 	var input_direction = Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
 	velocity = input_direction * SPEED
-
-func _input(event: InputEvent) -> void:
-	if event.is_action(\"mouse_left\"):
-		get_node(\"Gun\").shoot()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scdva"]
 size = Vector2(13.315219, 52)
 
-[node name="World" type="Node"]
+[node name="Node" type="Node"]
 
-[node name="Borders" type="Node2D" parent="."]
+[node name="World" type="Node2D" parent="."]
 position = Vector2(130, 600)
 scale = Vector2(3.679999, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+[node name="StaticBody2D" type="StaticBody2D" parent="World"]
 position = Vector2(-35.326096, -306.99994)
 scale = Vector2(0.11493399, 5.7086735)
 
-[node name="Sprite2D" type="Sprite2D" parent="Borders/StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="World/StaticBody2D"]
 position = Vector2(-1, 0)
 scale = Vector2(0.984375, 1)
-texture = ExtResource("1_scdva")
+texture = ExtResource("1_sy5k4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D"]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_gnlrw")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="World"]
 position = Vector2(124.1848, 44)
 scale = Vector2(3.2813964, 0.61480224)
 
-[node name="Sprite2D" type="Sprite2D" parent="Borders/StaticBody2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="World/StaticBody2D2"]
 position = Vector2(-1, 0)
 scale = Vector2(0.984375, 1)
-texture = ExtResource("1_scdva")
+texture = ExtResource("1_sy5k4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D2"]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_gnlrw")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="World"]
 position = Vector2(278.26093, -295.99994)
 scale = Vector2(0.08696995, 6.578416)
 
-[node name="Sprite2D" type="Sprite2D" parent="Borders/StaticBody2D3"]
+[node name="Sprite2D" type="Sprite2D" parent="World/StaticBody2D3"]
 position = Vector2(-1, 0)
 scale = Vector2(0.984375, 1)
-texture = ExtResource("1_scdva")
+texture = ExtResource("1_sy5k4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D3"]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_gnlrw")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
+[node name="StaticBody2D4" type="StaticBody2D" parent="World"]
 position = Vector2(118.20654, -599.9999)
 scale = Vector2(2.9105375, 0.25865656)
 
-[node name="Sprite2D" type="Sprite2D" parent="Borders/StaticBody2D4"]
+[node name="Sprite2D" type="Sprite2D" parent="World/StaticBody2D4"]
 position = Vector2(-1, 0)
 scale = Vector2(0.984375, 1)
-texture = ExtResource("1_scdva")
+texture = ExtResource("1_sy5k4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D4"]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_gnlrw")
 
@@ -92,12 +87,9 @@ script = SubResource("GDScript_scdva")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 scale = Vector2(0.114487775, 0.43014315)
-texture = ExtResource("1_scdva")
+texture = ExtResource("1_sy5k4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-0.13587189, 0)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_scdva")
-
-[node name="Gun" parent="Player" instance=ExtResource("2_gnlrw")]
-scale = Vector2(0.0099400785, 0.03725098)
