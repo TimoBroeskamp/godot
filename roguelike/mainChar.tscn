@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0tkiu652amdx"]
+[gd_scene format=3 uid="uid://d0tkiu652amdx"]
 
 [ext_resource type="Texture2D" uid="uid://bvhrbudhfluj2" path="res://Images/icon.svg" id="1_scdva"]
 [ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://Gun.tscn" id="2_gnlrw"]
@@ -27,77 +27,79 @@ func _input(event: InputEvent) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scdva"]
 size = Vector2(13.315219, 52)
 
-[node name="World" type="Node"]
+[node name="World" type="Node" unique_id=1555459112]
 
-[node name="Borders" type="Node2D" parent="."]
+[node name="Borders" type="Node2D" parent="." unique_id=740028844]
 position = Vector2(130, 600)
 scale = Vector2(3.679999, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders" unique_id=112722895]
 position = Vector2(-35.326096, -306.99994)
 scale = Vector2(0.11493399, 5.7086735)
 
-[node name="Sprite2D" type="Sprite2D" parent="Borders/StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Borders/StaticBody2D" unique_id=550606472]
 position = Vector2(-1, 0)
 scale = Vector2(0.984375, 1)
 texture = ExtResource("1_scdva")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=2017234069]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_gnlrw")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders" unique_id=1272505493]
 position = Vector2(124.1848, 44)
 scale = Vector2(3.2813964, 0.61480224)
 
-[node name="Sprite2D" type="Sprite2D" parent="Borders/StaticBody2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="Borders/StaticBody2D2" unique_id=967706885]
 position = Vector2(-1, 0)
 scale = Vector2(0.984375, 1)
 texture = ExtResource("1_scdva")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2" unique_id=1065644440]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_gnlrw")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders" unique_id=1180979353]
 position = Vector2(278.26093, -295.99994)
 scale = Vector2(0.08696995, 6.578416)
 
-[node name="Sprite2D" type="Sprite2D" parent="Borders/StaticBody2D3"]
+[node name="Sprite2D" type="Sprite2D" parent="Borders/StaticBody2D3" unique_id=1693025357]
 position = Vector2(-1, 0)
 scale = Vector2(0.984375, 1)
 texture = ExtResource("1_scdva")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3" unique_id=1826217202]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_gnlrw")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders" unique_id=1812594496]
 position = Vector2(118.20654, -599.9999)
 scale = Vector2(2.9105375, 0.25865656)
 
-[node name="Sprite2D" type="Sprite2D" parent="Borders/StaticBody2D4"]
+[node name="Sprite2D" type="Sprite2D" parent="Borders/StaticBody2D4" unique_id=1879227031]
 position = Vector2(-1, 0)
 scale = Vector2(0.984375, 1)
 texture = ExtResource("1_scdva")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4" unique_id=1840769952]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_gnlrw")
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=261155837]
 position = Vector2(581.99994, 441)
 scale = Vector2(3.679999, 1)
 script = SubResource("GDScript_scdva")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1165367441]
 scale = Vector2(0.114487775, 0.43014315)
 texture = ExtResource("1_scdva")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=833895710]
 position = Vector2(-0.13587189, 0)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_scdva")
 
-[node name="Gun" parent="Player" instance=ExtResource("2_gnlrw")]
-scale = Vector2(0.0099400785, 0.03725098)
+[node name="Gun" parent="Player" unique_id=179136743 instance=ExtResource("2_gnlrw")]
+position = Vector2(5.165782, 2.0002117)
+rotation = 0.07853982
+scale = Vector2(0.007207204, 0.0049396157)
