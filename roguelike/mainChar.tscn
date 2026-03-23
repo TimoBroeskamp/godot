@@ -2,27 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://bvhrbudhfluj2" path="res://Images/icon.svg" id="1_scdva"]
 [ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://Gun.tscn" id="2_gnlrw"]
+[ext_resource type="Script" uid="uid://dqf6ry80o7rrl" path="res://Player.gd" id="2_jl3no"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnlrw"]
 size = Vector2(117, 119)
-
-[sub_resource type="GDScript" id="GDScript_scdva"]
-script/source = "extends CharacterBody2D
-
-var SPEED : int = 350
-
-func _process(delta: float) -> void:
-	get_input()
-	move_and_slide()
-# Movement
-func get_input() -> void:
-	var input_direction = Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
-	velocity = input_direction * SPEED
-
-func _input(event: InputEvent) -> void:
-	if event.is_action(\"mouse_left\"):
-		get_node(\"Gun\").shoot()
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scdva"]
 size = Vector2(13.315219, 52)
@@ -88,7 +71,7 @@ shape = SubResource("RectangleShape2D_gnlrw")
 [node name="Player" type="CharacterBody2D" parent="." unique_id=261155837]
 position = Vector2(581.99994, 441)
 scale = Vector2(3.679999, 1)
-script = SubResource("GDScript_scdva")
+script = ExtResource("2_jl3no")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1165367441]
 scale = Vector2(0.114487775, 0.43014315)
