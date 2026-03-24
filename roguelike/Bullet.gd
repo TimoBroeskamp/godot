@@ -1,16 +1,13 @@
-extends CharacterBody2D
+extends Area2D
 
 @export var speed :int = 400
-var target_position
+var target_position: Vector2
 var despawn_time = 1
-
-func _ready() -> void:
-	despawn()
 	
 func _physics_process(delta: float) -> void:
-	velocity = target_position * speed
-	move_and_slide()
+	print(target_position)
+	position += target_position * speed * delta
 	
-func despawn() -> void:
+func _ready() -> void:
 	await get_tree().create_timer(despawn_time).timeout 
 	queue_free()
