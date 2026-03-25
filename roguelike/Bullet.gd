@@ -5,7 +5,6 @@ var target_position: Vector2
 var despawn_time = 1
 	
 func _physics_process(delta: float) -> void:
-	print(target_position)
 	position += target_position * speed * delta
 	
 func _ready() -> void:

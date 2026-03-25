@@ -12,5 +12,5 @@ func get_input() -> void:
 	velocity = input_direction * SPEED
 
 func _input(event: InputEvent) -> void:
-	if event.is_action("mouse_left"):
+	if event.is_action_pressed("mouse_left"):
 		get_node("Gun").shoot()
