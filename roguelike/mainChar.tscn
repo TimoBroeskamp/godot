@@ -1,16 +1,18 @@
-[gd_scene load_steps=89 format=3 uid="uid://d0tkiu652amdx"]
+[gd_scene load_steps=91 format=3 uid="uid://d0tkiu652amdx"]
 
 [ext_resource type="Texture2D" uid="uid://bvhrbudhfluj2" path="res://Images/icon.svg" id="1_scdva"]
 [ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://Gun.tscn" id="2_gnlrw"]
 [ext_resource type="Script" uid="uid://dqf6ry80o7rrl" path="res://Player.gd" id="2_jl3no"]
-[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://components/health.gd" id="3_j4wcn"]
+[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://components/health/scripts/health.gd" id="3_j4wcn"]
 [ext_resource type="Texture2D" uid="uid://b6vipm1qssdtl" path="res://Character/Walk/walk.png" id="4_48qap"]
 [ext_resource type="Texture2D" uid="uid://duydunj5q2ruc" path="res://Character/Idle/idle.png" id="4_ecjii"]
 [ext_resource type="Texture2D" uid="uid://l6mp2c75e3c2" path="res://Character/Walk/walk_left_down.png" id="5_ryysm"]
 [ext_resource type="Texture2D" uid="uid://m7ndgan17ny3" path="res://Character/Walk/walk_right_down.png" id="6_ecjii"]
 [ext_resource type="Texture2D" uid="uid://cbcveqfam667" path="res://Character/Walk/walk_left_up.png" id="7_j4wcn"]
 [ext_resource type="Texture2D" uid="uid://8hctscowp436" path="res://Character/Walk/walk_right_up.png" id="8_sel7t"]
-[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://components/hurtbox.gd" id="11_sel7t"]
+[ext_resource type="Script" uid="uid://u72tvrs1p7oy" path="res://test_dummy.gd" id="11_f7k75"]
+[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://components/health/scripts/hurtbox.gd" id="11_sel7t"]
+[ext_resource type="PackedScene" uid="uid://ddbvjxwfqby4i" path="res://components/health/scenes/healthbar.tscn" id="13_kxat5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnlrw"]
 size = Vector2(117, 119)
@@ -661,6 +663,12 @@ animation = &"walk_down_right"
 autoplay = "idle_right"
 
 [node name="TestDummy" type="CharacterBody2D" parent="."]
+script = ExtResource("11_f7k75")
+
+[node name="Health" type="Node" parent="TestDummy"]
+script = ExtResource("3_j4wcn")
+max_health = 10
+metadata/_custom_type_script = "uid://cy2lwblrxhlg1"
 
 [node name="Sprite2D" type="Sprite2D" parent="TestDummy"]
 position = Vector2(257, 172)
@@ -670,10 +678,19 @@ texture = ExtResource("1_scdva")
 position = Vector2(257, 172.5)
 shape = SubResource("RectangleShape2D_j4wcn")
 
-[node name="HurtBox" type="Area2D" parent="TestDummy"]
+[node name="HurtBox" type="Area2D" parent="TestDummy" node_paths=PackedStringArray("health")]
 script = ExtResource("11_sel7t")
+health = NodePath("../Health")
 metadata/_custom_type_script = "uid://bxhjin8jclsyl"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestDummy/HurtBox"]
 position = Vector2(257, 172.5)
 shape = SubResource("RectangleShape2D_f7k75")
+
+[node name="Healthbar" parent="TestDummy" instance=ExtResource("13_kxat5")]
+offset_left = 140.0
+offset_top = 76.0
+offset_right = 380.0
+offset_bottom = 92.0
+
+[connection signal="health_depleted" from="TestDummy/Health" to="TestDummy" method="_on_health_health_depleted"]
