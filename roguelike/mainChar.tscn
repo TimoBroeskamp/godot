@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bvhrbudhfluj2" path="res://Images/icon.svg" id="1_scdva"]
 [ext_resource type="PackedScene" uid="uid://dsjvkjsi8lxy7" path="res://Entities/Dummy/Dummy.tscn" id="3_jl3no"]
+[ext_resource type="Script" uid="uid://b7sqmru8qso8n" path="res://dummy_spawner.gd" id="4_48qap"]
 [ext_resource type="PackedScene" uid="uid://c22xxvlaemtoe" path="res://Entities/Player/Player.tscn" id="6_hfd3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnlrw"]
@@ -75,3 +76,7 @@ scale = Vector2(4, 4)
 [node name="TestDummy2" parent="." unique_id=717742261 instance=ExtResource("3_jl3no")]
 position = Vector2(153, 366)
 scale = Vector2(4, 4)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1012858048]
+position = Vector2(900, 135)
+script = ExtResource("4_48qap")
