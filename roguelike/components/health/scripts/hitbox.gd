@@ -1,11 +1,11 @@
 class_name HitBox
 extends Area2D
 
-@export var damage: int = 1 : set = set_damage, get = get_damage
+var damage: float = 1
 
-func set_damage(value: int):
+func set_damage(value: float):
 	damage = value
 
 
-func get_damage() -> int:
+func get_damage() -> float:
 	return damage

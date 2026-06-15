@@ -2,7 +2,7 @@ extends Area2D
 
 @export var speed :int = 400
 var target_position: Vector2
-var despawn_time = 1
+var despawn_time = 2
 	
 func _physics_process(delta: float) -> void:
 	position += target_position * speed * delta

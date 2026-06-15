@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://dsjvkjsi8lxy7"]
+[gd_scene load_steps=10 format=3 uid="uid://dsjvkjsi8lxy7"]
 
 [ext_resource type="Script" uid="uid://u72tvrs1p7oy" path="res://test_dummy.gd" id="1_koe2o"]
-[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://components/health/scripts/health.gd" id="2_7syxl"]
+[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://Components/health/scripts/stats.gd" id="2_7syxl"]
 [ext_resource type="Texture2D" uid="uid://lvpf7dfsu7jd" path="res://Assets/Dummy/target_dummy.png" id="3_koe2o"]
-[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://components/health/scripts/hurtbox.gd" id="4_xs73u"]
-[ext_resource type="PackedScene" uid="uid://ddbvjxwfqby4i" path="res://components/health/scenes/healthbar.tscn" id="5_ounb1"]
+[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://Components/health/scripts/hurtbox.gd" id="4_xs73u"]
+[ext_resource type="PackedScene" uid="uid://ddbvjxwfqby4i" path="res://Components/health/scenes/healthbar.tscn" id="5_ounb1"]
+[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://Components/health/scripts/hitbox.gd" id="6_7syxl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7syxl"]
 radius = 4.0
@@ -14,30 +15,34 @@ height = 22.0
 radius = 4.0
 height = 22.0
 
-[node name="TestDummy" type="CharacterBody2D" unique_id=732592238]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75l75"]
+size = Vector2(22, 31)
+
+[node name="TestDummy" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_koe2o")
 
-[node name="Health" type="Node" parent="." unique_id=1386840901]
+[node name="Stats" type="Node" parent="."]
 script = ExtResource("2_7syxl")
-max_health = 10
+max_health = 10.0
 metadata/_custom_type_script = "uid://cy2lwblrxhlg1"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1438991567]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -2)
 texture = ExtResource("3_koe2o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1947669909]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_7syxl")
 
-[node name="HurtBox" type="Area2D" parent="." unique_id=1949433590 node_paths=PackedStringArray("health")]
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 script = ExtResource("4_xs73u")
-health = NodePath("../Health")
+health = NodePath("../Stats")
 metadata/_custom_type_script = "uid://bxhjin8jclsyl"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1485243579]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_75l75")
 
-[node name="Healthbar" parent="." unique_id=1065748846 instance=ExtResource("5_ounb1")]
+[node name="Healthbar" parent="." instance=ExtResource("5_ounb1")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -49,4 +54,14 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("6_7syxl")
+metadata/_custom_type_script = "uid://oara1kagvgii"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_75l75")
+
+[connection signal="health_depleted" from="Stats" to="." method="_on_health_health_depleted"]

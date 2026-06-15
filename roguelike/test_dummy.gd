@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var health_component: Health = $Health
+@onready var health_component: Stats = $Stats
 @onready var health_bar = $Healthbar
 
 func _ready():

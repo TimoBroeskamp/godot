@@ -3,6 +3,11 @@ extends CharacterBody2D
 var SPEED : int = 250
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var hitbox: HitBox = $HitBox
+@onready var stats: Stats = $Stats
+
+func _ready() -> void:
+	hitbox.damage = stats.damage
 
 func _physics_process(delta: float) -> void:
 	get_input()
