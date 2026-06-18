@@ -12,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://8hctscowp436" path="res://Assets/Character/Walk/walk_right_up.png" id="9_8td47"]
 [ext_resource type="Script" uid="uid://oara1kagvgii" path="res://Components/health/scripts/hitbox.gd" id="10_hacra"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_scdva"]
-size = Vector2(8.423918, 45.000023)
+[sub_resource type="CircleShape2D" id="CircleShape2D_jynvv"]
+radius = 6.250004
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rb34n"]
 atlas = ExtResource("4_cfvty")
@@ -586,9 +586,9 @@ damage = 2.0
 metadata/_custom_type_script = "uid://cy2lwblrxhlg1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.136, -24.5)
+position = Vector2(-8.881784e-16, -7)
 scale = Vector2(0.9999996, 0.99999946)
-shape = SubResource("RectangleShape2D_scdva")
+shape = SubResource("CircleShape2D_jynvv")
 
 [node name="Gun" parent="." instance=ExtResource("3_paumt")]
 position = Vector2(5.1657715, -24.999788)
