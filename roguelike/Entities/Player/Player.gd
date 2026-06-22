@@ -2,12 +2,14 @@ extends CharacterBody2D
 
 var SPEED : int = 250
 
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: HitBox = $HitBox
 @onready var stats: Stats = $Stats
 
 func _ready() -> void:
 	hitbox.damage = stats.damage
+
 
 func _physics_process(delta: float) -> void:
 	get_input()
@@ -52,7 +54,3 @@ func get_input() -> void:
 		animated_sprite_2d.play("walk_down_left")
 	elif input_direction == Vector2(1, -1):
 		animated_sprite_2d.play("walk_up_right")
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("mouse_left"):
-		$GunNode2D/Gun.shoot()

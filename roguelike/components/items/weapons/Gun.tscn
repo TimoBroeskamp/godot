@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bc56uvyukxswt"]
+
+[ext_resource type="Script" uid="uid://cy2qvx1uvpf35" path="res://Components/items/weapons/gunNode2D.gd" id="1_jresj"]
+[ext_resource type="Texture2D" uid="uid://c6u3pq085gdo5" path="res://Images/simple_gun.png" id="2_rpe8a"]
+[ext_resource type="Script" uid="uid://bc6jvub7vinq6" path="res://Components/items/weapons/Gun.gd" id="3_37h23"]
+
+[node name="GunNode2D" type="Node2D" unique_id=2103447066 groups=["guns"]]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_jresj")
+
+[node name="Gun" type="Sprite2D" parent="." unique_id=1017628117 groups=["guns"]]
+position = Vector2(100, 0)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_rpe8a")
+script = ExtResource("3_37h23")
+
+[node name="Marker2D" type="Marker2D" parent="Gun" unique_id=597769480]
+position = Vector2(514.2857, -200)
