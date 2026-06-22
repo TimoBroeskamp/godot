@@ -1,14 +1,15 @@
-[gd_scene format=3 uid="uid://bc56uvyukxswt"]
+[gd_scene load_steps=3 format=3 uid="uid://bc56uvyukxswt"]
 
 [ext_resource type="Texture2D" uid="uid://c6u3pq085gdo5" path="res://Images/simple_gun.png" id="1_jpqjm"]
 [ext_resource type="Script" uid="uid://bc6jvub7vinq6" path="res://Gun.gd" id="2_fry05"]
 
-[node name="Gun" type="Sprite2D" unique_id=729873226]
-position = Vector2(1, -1)
-scale = Vector2(0.07194935, 0.06556298)
+[node name="Node2D" type="Node2D"]
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(80, 0)
+scale = Vector2(0.07, 0.07)
 texture = ExtResource("1_jpqjm")
-offset = Vector2(961, 0)
 script = ExtResource("2_fry05")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1395877007]
-position = Vector2(1487.1573, -167.77762)
+[node name="Marker2D" type="Marker2D" parent="Gun"]
+position = Vector2(514.2857, -200)

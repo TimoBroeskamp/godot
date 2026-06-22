@@ -591,8 +591,7 @@ scale = Vector2(0.9999996, 0.99999946)
 shape = SubResource("CircleShape2D_jynvv")
 
 [node name="Gun" parent="." instance=ExtResource("3_paumt")]
-position = Vector2(5.1657715, -24.999788)
-scale = Vector2(0.007207204, 0.0049396157)
+position = Vector2(0, -24)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -24)
