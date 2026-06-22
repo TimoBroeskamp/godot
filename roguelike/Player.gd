@@ -55,4 +55,4 @@ func get_input() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse_left"):
-		get_node("Gun").shoot()
+		$GunNode2D/Gun.shoot()

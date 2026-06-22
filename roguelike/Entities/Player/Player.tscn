@@ -1,8 +1,8 @@
-[gd_scene load_steps=88 format=3 uid="uid://c22xxvlaemtoe"]
+[gd_scene format=3 uid="uid://c22xxvlaemtoe"]
 
-[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://Components/health/scripts/hurtbox.gd" id="1_jynvv"]
+[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://components/health/scripts/hurtbox.gd" id="1_jynvv"]
 [ext_resource type="Script" uid="uid://dqf6ry80o7rrl" path="res://Player.gd" id="1_nn0oq"]
-[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://Components/health/scripts/stats.gd" id="2_ry37w"]
+[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://components/health/scripts/stats.gd" id="2_ry37w"]
 [ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://Gun.tscn" id="3_paumt"]
 [ext_resource type="Texture2D" uid="uid://duydunj5q2ruc" path="res://Assets/Character/Idle/idle.png" id="4_cfvty"]
 [ext_resource type="Texture2D" uid="uid://b6vipm1qssdtl" path="res://Assets/Character/Walk/walk.png" id="5_hmggr"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://m7ndgan17ny3" path="res://Assets/Character/Walk/walk_right_down.png" id="7_yytyf"]
 [ext_resource type="Texture2D" uid="uid://cbcveqfam667" path="res://Assets/Character/Walk/walk_left_up.png" id="8_mwl8m"]
 [ext_resource type="Texture2D" uid="uid://8hctscowp436" path="res://Assets/Character/Walk/walk_right_up.png" id="9_8td47"]
-[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://Components/health/scripts/hitbox.gd" id="10_hacra"]
+[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://components/health/scripts/hitbox.gd" id="10_hacra"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jynvv"]
 radius = 6.250004
@@ -573,48 +573,48 @@ size = Vector2(8.423916, 45.000008)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmeus"]
 size = Vector2(8.423916, 45)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=2018229861]
 z_index = 1
 y_sort_enabled = true
 scale = Vector2(3.679999, 1)
 script = ExtResource("1_nn0oq")
 
-[node name="Stats" type="Node" parent="."]
+[node name="Stats" type="Node" parent="." unique_id=978262829]
 script = ExtResource("2_ry37w")
 max_health = 10.0
 damage = 2.0
 metadata/_custom_type_script = "uid://cy2lwblrxhlg1"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62294256]
 position = Vector2(-8.881784e-16, -7)
 scale = Vector2(0.9999996, 0.99999946)
 shape = SubResource("CircleShape2D_jynvv")
 
-[node name="Gun" parent="." instance=ExtResource("3_paumt")]
+[node name="GunNode2D" parent="." unique_id=2103447066 instance=ExtResource("3_paumt")]
 position = Vector2(0, -24)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=328269044]
 position = Vector2(0, -24)
 scale = Vector2(0.719, 2.109)
 sprite_frames = SubResource("SpriteFrames_kxat5")
 animation = &"walk_down_right"
 autoplay = "idle_right"
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="." unique_id=856455395]
 script = ExtResource("10_hacra")
 metadata/_custom_type_script = "uid://oara1kagvgii"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=311129010]
 position = Vector2(-0.136, -24.5)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_jynvv")
 
-[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+[node name="HurtBox" type="Area2D" parent="." unique_id=719092025 node_paths=PackedStringArray("health")]
 script = ExtResource("1_jynvv")
 health = NodePath("../Stats")
 metadata/_custom_type_script = "uid://bxhjin8jclsyl"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=851225827]
 position = Vector2(-0.13586932, -24.499998)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_lmeus")
