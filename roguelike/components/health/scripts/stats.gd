@@ -6,11 +6,13 @@ signal health_changed(diff: int)
 signal health_depleted
 signal damage_changed(diff: float)
 signal movement_speed_changed(diff: float)
+signal attack_speed_changed(diff: float)
 
 @export var max_health: float = 3 : set = set_max_health, get = get_max_health
 @export var immortality: bool = false : set = set_immortality, get = get_immortality
 @export var damage: float = 1 : set = set_damage, get = get_damage
 @export var movement_speed: float = 100 : set = set_movement_speed, get = get_movement_speed
+@export var attack_speed: float = 1 : set = set_attack_speed, get = get_attack_speed
 
 var immortality_timer: Timer = null
 
@@ -87,3 +89,13 @@ func set_movement_speed(value: float):
 
 func get_movement_speed() -> float:
 	return movement_speed
+
+func set_attack_speed(value: float):
+	var clamped = max(0.0, value)
+	if clamped != attack_speed:
+		var diff = clamped - attack_speed
+		attack_speed = clamped
+		attack_speed_changed.emit(diff)
+
+func get_attack_speed() -> float:
+	return attack_speed

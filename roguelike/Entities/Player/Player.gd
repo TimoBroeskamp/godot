@@ -1,20 +1,20 @@
 extends CharacterBody2D
 
-var SPEED : int = 250
-
-
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: HitBox = $HitBox
 @onready var stats: Stats = $Stats
 
 func _ready() -> void:
 	hitbox.damage = stats.damage
+	stats.health_depleted.connect(_on_death)
+
+func _on_death() -> void:
+	queue_free()
 
 
 func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
-	
 # Movement
 
 #calculation to turn for example top-left movement into (1, 1) Voctor
@@ -30,7 +30,7 @@ func get_8way_direction(dir: Vector2) -> Vector2:
 
 func get_input() -> void:
 	var raw_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = raw_direction * SPEED
+	velocity = raw_direction * stats.movement_speed
 	
 	#get clear values for the animations
 	var input_direction = get_8way_direction(raw_direction)

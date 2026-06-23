@@ -1,7 +1,7 @@
 extends Sprite2D
 
 @onready var marker_2d: Marker2D = $Marker2D
-const BULLET = preload("res://Components/items/projectiles/Bullet.tscn")
+const BULLET = preload("res://components/items/projectiles/Bullet.tscn")
 
 
 func shoot() -> void:
