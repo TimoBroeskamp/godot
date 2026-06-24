@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dsjvkjsi8lxy7"]
 
 [ext_resource type="Script" uid="uid://u72tvrs1p7oy" path="res://Entities/Dummy/test_dummy.gd" id="1_koe2o"]
-[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://Components/health/scripts/stats.gd" id="2_7syxl"]
+[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://components/health/scripts/stats.gd" id="2_7syxl"]
 [ext_resource type="Texture2D" uid="uid://lvpf7dfsu7jd" path="res://Assets/Dummy/target_dummy.png" id="3_koe2o"]
-[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://Components/health/scripts/hurtbox.gd" id="4_xs73u"]
-[ext_resource type="PackedScene" uid="uid://ddbvjxwfqby4i" path="res://Components/health/scenes/healthbar.tscn" id="5_ounb1"]
-[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://Components/health/scripts/hitbox.gd" id="6_7syxl"]
+[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://components/health/scripts/hurtbox.gd" id="4_xs73u"]
+[ext_resource type="PackedScene" uid="uid://ddbvjxwfqby4i" path="res://components/health/scenes/healthbar.tscn" id="5_ounb1"]
+[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://components/health/scripts/hitbox.gd" id="6_7syxl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7syxl"]
 radius = 4.0
@@ -43,6 +43,7 @@ metadata/_custom_type_script = "uid://bxhjin8jclsyl"
 shape = SubResource("CapsuleShape2D_75l75")
 
 [node name="Healthbar" parent="." unique_id=387632775 instance=ExtResource("5_ounb1")]
+z_index = 5
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

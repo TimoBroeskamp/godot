@@ -8,7 +8,8 @@ func _ready():
 
 func spawn_dummy():
 	var dummy = dummy_scene.instantiate()
-	dummy.position = position  # or a fixed spawn point
+	dummy.position = Vector2(100, 50)  # or a fixed spawn point
+	dummy.scale = Vector2(2, 2)
 	add_child(dummy)
 	dummy.health_component.health_depleted.connect(_on_dummy_depleted)
 
