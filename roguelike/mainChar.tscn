@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dkwvdtkxrtki2" path="res://Assets/TileMap/TX Plant with Shadow.png" id="6_ryysm"]
 [ext_resource type="Texture2D" uid="uid://dy03na7xkkhj0" path="res://Assets/TileMap/TX Props with Shadow.png" id="7_ecjii"]
 [ext_resource type="Texture2D" uid="uid://d2n20fxslwx6m" path="res://Assets/TileMap/TX Struct.png" id="8_j4wcn"]
-[ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://components/items/weapons/Gun.tscn" id="9_ecjii"]
+[ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://Components/items/weapons/Gun.tscn" id="9_ecjii"]
+[ext_resource type="PackedScene" uid="uid://y2i2e21mhevq" path="res://Entities/Enemys/Slime/Slime.tscn" id="10_j4wcn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hfd3q"]
 texture = ExtResource("5_u17qb")
@@ -1166,3 +1167,5 @@ tile_map_data = PackedByteArray("AAAaAAkAAAABAAAAAAATAB4AAAASAAEAAAA5AA0AAAAJAAA
 tile_set = SubResource("TileSet_ljsbf")
 
 [node name="GunNode2D" parent="." unique_id=2103447066 instance=ExtResource("9_ecjii")]
+
+[node name="Slime" parent="." unique_id=1303492310 instance=ExtResource("10_j4wcn")]
