@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://Components/health/scripts/hurtbox.gd" id="4_mv5xj"]
 [ext_resource type="PackedScene" uid="uid://ddbvjxwfqby4i" path="res://Components/health/scenes/healthbar.tscn" id="5_x1bcm"]
 [ext_resource type="Script" uid="uid://oara1kagvgii" path="res://Components/health/scripts/hitbox.gd" id="6_x1bcm"]
+[ext_resource type="PackedScene" uid="uid://c2aa3pkgxkjxw" path="res://Components/health/scenes/Navigation.tscn" id="7_qbvbl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ih8n"]
 radius = 4.0
@@ -18,8 +19,10 @@ radius = 13.0
 radius = 13.0
 
 [node name="Slime" type="CharacterBody2D" unique_id=1303492310]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+wall_min_slide_angle = 0.17453292
 script = ExtResource("1_0dhkt")
 
 [node name="Stats" type="Node" parent="." unique_id=285930427]
@@ -57,3 +60,5 @@ metadata/_custom_type_script = "uid://oara1kagvgii"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1977356751]
 shape = SubResource("CircleShape2D_knpeo")
+
+[node name="Navigation" parent="." unique_id=630751184 instance=ExtResource("7_qbvbl")]
