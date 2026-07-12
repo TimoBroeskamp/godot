@@ -11,8 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://8hctscowp436" path="res://Assets/Character/Walk/walk_right_up.png" id="9_8td47"]
 [ext_resource type="Script" uid="uid://oara1kagvgii" path="res://Components/health/scripts/hitbox.gd" id="10_hacra"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jynvv"]
-radius = 5.508214
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j4wcn"]
+radius = 5.5
+height = 11.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rb34n"]
 atlas = ExtResource("4_cfvty")
@@ -579,7 +580,8 @@ scale = Vector2(3.679999, 1)
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1
-wall_min_slide_angle = 0.0
+wall_min_slide_angle = 1.5707964
+safe_margin = 0.5
 script = ExtResource("1_nn0oq")
 
 [node name="Stats" type="Node" parent="." unique_id=978262829]
@@ -591,9 +593,9 @@ attack_speed = 10.0
 metadata/_custom_type_script = "uid://cy2lwblrxhlg1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62294256]
-position = Vector2(-8.881784e-16, -7)
+position = Vector2(-8.881784e-16, -5)
 scale = Vector2(0.9999996, 0.99999946)
-shape = SubResource("CircleShape2D_jynvv")
+shape = SubResource("CapsuleShape2D_j4wcn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=328269044]
 position = Vector2(0, -24)

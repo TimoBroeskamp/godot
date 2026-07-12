@@ -7,6 +7,7 @@ script = ExtResource("1_81lh4")
 nav_agent = NodePath("NavigationAgent2D")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=243692678]
+navigation_layers = 3
 
 [node name="Timer" type="Timer" parent="." unique_id=421692073]
 wait_time = 0.1

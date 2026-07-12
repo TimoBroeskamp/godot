@@ -14,6 +14,14 @@ func _on_death() -> void:
 
 func _physics_process(delta: float) -> void:
 	get_input()
+	var full_velocity = velocity
+	
+	# Move X axis
+	velocity = Vector2(full_velocity.x, 0)
+	move_and_slide()
+	
+	# Move Y axis
+	velocity = Vector2(0, full_velocity.y)
 	move_and_slide()
 # Movement
 

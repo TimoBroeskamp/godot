@@ -35,6 +35,7 @@ project/assembly_name="roguelike"
 
 player=""
 guns=""
+nav_source=""
 
 [input]
 

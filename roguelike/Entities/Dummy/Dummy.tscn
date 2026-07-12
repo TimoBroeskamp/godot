@@ -39,6 +39,8 @@ texture = ExtResource("3_koe2o")
 shape = SubResource("CapsuleShape2D_7syxl")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1362445250 node_paths=PackedStringArray("health")]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("4_xs73u")
 health = NodePath("../Stats")
 metadata/_custom_type_script = "uid://bxhjin8jclsyl"
