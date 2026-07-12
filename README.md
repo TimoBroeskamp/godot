@@ -2,8 +2,8 @@
 - [x] Create a basic map
 - [x] fix the gun rotation bug
 - [x] add auto-shoot, attack speed to the character
+- [x] add a basic enemy that moves towards you and deals damage
 - [ ] add spawning logic
-- [ ] add a basic enemy that moves towards you and deals damage
 - [ ] add HUD(Pause screen and Main screen)
 - [ ] add Levels
 - [ ] add 3 simple augments
