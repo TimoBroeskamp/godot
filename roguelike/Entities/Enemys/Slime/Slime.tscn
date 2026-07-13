@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://y2i2e21mhevq"]
 
 [ext_resource type="Script" uid="uid://bgoxhceq477il" path="res://Entities/Enemys/Slime/slime.gd" id="1_0dhkt"]
-[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://Components/health/scripts/stats.gd" id="1_bgsb5"]
+[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://components/health/scripts/stats.gd" id="1_bgsb5"]
 [ext_resource type="Texture2D" uid="uid://bc8fhl5xe3ww" path="res://Assets/Slime/Slime-move-down.png" id="1_cyl2f"]
-[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://Components/health/scripts/hurtbox.gd" id="4_mv5xj"]
-[ext_resource type="PackedScene" uid="uid://ddbvjxwfqby4i" path="res://Components/health/scenes/healthbar.tscn" id="5_x1bcm"]
-[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://Components/health/scripts/hitbox.gd" id="6_x1bcm"]
-[ext_resource type="PackedScene" uid="uid://c2aa3pkgxkjxw" path="res://Components/health/scenes/Navigation.tscn" id="7_qbvbl"]
+[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://components/health/scripts/hurtbox.gd" id="4_mv5xj"]
+[ext_resource type="PackedScene" uid="uid://ddbvjxwfqby4i" path="res://components/health/scenes/healthbar.tscn" id="5_x1bcm"]
+[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://components/health/scripts/hitbox.gd" id="6_x1bcm"]
+[ext_resource type="PackedScene" uid="uid://c2aa3pkgxkjxw" path="res://components/health/scenes/Navigation.tscn" id="7_qbvbl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ih8n"]
 radius = 4.0
