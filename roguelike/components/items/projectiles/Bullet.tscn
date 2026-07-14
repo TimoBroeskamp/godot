@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://boe1d5oashgrn"]
 
-[ext_resource type="Script" uid="uid://37nrqoqxt3t3" path="res://Components/items/projectiles/Bullet.gd" id="1_4s4u5"]
+[ext_resource type="Script" uid="uid://37nrqoqxt3t3" path="res://components/items/projectiles/Bullet.gd" id="1_4s4u5"]
 [ext_resource type="Texture2D" uid="uid://byfafhrihh7ek" path="res://Images/simple_bullet.png" id="1_ayd6b"]
-[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://Components/health/scripts/hitbox.gd" id="3_7281b"]
+[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://components/health/scripts/hitbox.gd" id="3_7281b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4s4u5"]
 radius = 2.0
@@ -21,7 +21,7 @@ position = Vector2(0, 1)
 texture = ExtResource("1_ayd6b")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1424795449]
-collision_layer = 4
+collision_layer = 8
 collision_mask = 4
 script = ExtResource("3_7281b")
 metadata/_custom_type_script = "uid://oara1kagvgii"

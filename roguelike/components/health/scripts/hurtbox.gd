@@ -8,7 +8,8 @@ signal received_damage(damage: int)
 func _ready():
 	connect("area_entered", _on_area_entered)
 
-func _on_area_entered(hitbox: HitBox) -> void:
-	if hitbox != null:
+func _on_area_entered(area: Area2D) -> void:
+	if area is HitBox:
+		var hitbox := area as HitBox
 		health.health -= hitbox.damage
 		received_damage.emit(hitbox.damage)

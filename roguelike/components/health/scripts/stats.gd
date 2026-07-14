@@ -47,7 +47,7 @@ func set_temporary_immortality(time: float):
 	if immortality_timer.timeout.is_connected(set_immortality):
 		immortality_timer.timeout.disconnect(set_immortality)
 	
-	immortality_timer.set_wait_timer(time)
+	immortality_timer.wait_time = time
 	immortality_timer.timeout.connect(set_immortality.bind(false))
 	immortality = true
 	immortality_timer.start()

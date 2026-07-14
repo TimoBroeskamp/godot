@@ -1,4 +1,5 @@
-extends CharacterBody2D
+extends Enemy
+class_name Slime
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var navigation = $Navigation
@@ -21,15 +22,12 @@ func _ready():
 	
 	hitbox.damage = stats.damage
 	stats.health_depleted.connect(_on_death)
-	
-func _on_health_health_depleted() -> void:
-	queue_free()
 
 func respawn() -> void:
 	pass
 
 func _on_death() -> void:
-	queue_free()
+	died.emit(self)
 
 
 func _physics_process(delta: float) -> void:
@@ -39,3 +37,8 @@ func _physics_process(delta: float) -> void:
 
 func move_to_player() -> void:
 	velocity = navigation.move_direction * stats.movement_speed
+
+func reset_state() -> void:
+	health_component.health = health_component.max_health
+	# reset anim state, velocity, current nav target, any timers here too
+	velocity = Vector2.ZERO

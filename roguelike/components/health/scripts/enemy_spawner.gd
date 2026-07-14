@@ -22,8 +22,8 @@ func _ready() -> void:
 	for data in enemy_pool:
 		var pool_array: Array[Node2D] = []
 		for i in pool_size:
-			var enemy := data.scene.instantiate()
-			enemy.died.connect(_on_enemy_died.bind(enemy, data))
+			var enemy : Enemy = data.scene.instantiate()
+			enemy.died.connect(_on_enemy_died.bind(data))
 			_deactivate(enemy)
 			add_child(enemy)
 			pool_array.append(enemy)
