@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dkwvdtkxrtki2" path="res://Assets/TileMap/TX Plant with Shadow.png" id="6_ryysm"]
 [ext_resource type="Texture2D" uid="uid://dy03na7xkkhj0" path="res://Assets/TileMap/TX Props with Shadow.png" id="7_ecjii"]
 [ext_resource type="Texture2D" uid="uid://d2n20fxslwx6m" path="res://Assets/TileMap/TX Struct.png" id="8_j4wcn"]
-[ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://components/items/weapons/Gun.tscn" id="9_ecjii"]
-[ext_resource type="PackedScene" uid="uid://tcxg1h68lcyu" path="res://components/health/scenes/EnemySpawner.tscn" id="10_j4wcn"]
-[ext_resource type="Script" uid="uid://bdwmhlf2koi80" path="res://components/health/scripts/EnemyStats.gd" id="11_sel7t"]
+[ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://Components/items/weapons/Gun.tscn" id="9_ecjii"]
+[ext_resource type="PackedScene" uid="uid://tcxg1h68lcyu" path="res://Components/health/scenes/EnemySpawner.tscn" id="10_j4wcn"]
+[ext_resource type="Script" uid="uid://bdwmhlf2koi80" path="res://Components/health/scripts/EnemyStats.gd" id="11_sel7t"]
 [ext_resource type="PackedScene" uid="uid://y2i2e21mhevq" path="res://Entities/Enemys/Slime/Slime.tscn" id="12_f7k75"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j4wcn"]

@@ -589,7 +589,6 @@ script = ExtResource("2_ry37w")
 max_health = 10.0
 damage = 2.0
 movement_speed = 250.0
-attack_speed = 10.0
 metadata/_custom_type_script = "uid://cy2lwblrxhlg1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62294256]

@@ -10,7 +10,7 @@ extends Node2D
 @export var difficulty_curve: Curve                     # x: 0-1 normalized time, y: difficulty value
 @export var spawn_budget_curve: Curve                   # x: 0-1 normalized time, y: budget per tick
 @export var run_duration: float = 600.0                 # seconds to reach max difficulty
-@export var spawn_interval: float = 2.0                 # seconds between spawn ticks
+@export var spawn_interval: float = 0.5                 # seconds between spawn ticks
 
 var elapsed: float = 0.0
 var current_difficulty: float = 0.0
@@ -99,7 +99,11 @@ func _activate(enemy: Node2D) -> void:
 	enemy.visible = true
 	enemy.set_physics_process(true)
 	enemy.set_process(true)
-	enemy.get_node("CollisionShape2D").disabled = false
+	enemy.get_node("CollisionShape2D").set_deferred("disabled", false)
+	enemy.get_node("HurtBox").set_deferred("monitoring", true)
+	enemy.get_node("HurtBox").set_deferred("monitorable", true)
+	enemy.get_node("HitBox").set_deferred("monitoring", true)
+	enemy.get_node("HitBox").set_deferred("monitorable", true)
 	if enemy.has_method("reset_state"):
 		enemy.reset_state()
 
@@ -107,4 +111,8 @@ func _deactivate(enemy: Node2D) -> void:
 	enemy.visible = false
 	enemy.set_physics_process(false)
 	enemy.set_process(false)
-	enemy.get_node("CollisionShape2D").disabled = true
+	enemy.get_node("CollisionShape2D").set_deferred("disabled", true)
+	enemy.get_node("HurtBox").set_deferred("monitoring", false)
+	enemy.get_node("HurtBox").set_deferred("monitorable", false)
+	enemy.get_node("HitBox").set_deferred("monitoring", false)
+	enemy.get_node("HitBox").set_deferred("monitorable", false)
