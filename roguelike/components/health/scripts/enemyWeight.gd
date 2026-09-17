@@ -1,4 +1,4 @@
-class_name EnemyData
+class_name enemyWeight
 extends Resource
 
 @export var scene: PackedScene

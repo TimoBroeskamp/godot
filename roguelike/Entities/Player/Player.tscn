@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://c22xxvlaemtoe"]
 
-[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://Components/health/scripts/hurtbox.gd" id="1_jynvv"]
+[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://components/health/scripts/hurtbox.gd" id="1_jynvv"]
 [ext_resource type="Script" uid="uid://dqf6ry80o7rrl" path="res://Entities/Player/Player.gd" id="1_nn0oq"]
-[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://Components/health/scripts/stats.gd" id="2_ry37w"]
+[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://components/health/scripts/stats.gd" id="2_ry37w"]
 [ext_resource type="Texture2D" uid="uid://duydunj5q2ruc" path="res://Assets/Character/Idle/idle.png" id="4_cfvty"]
 [ext_resource type="Texture2D" uid="uid://b6vipm1qssdtl" path="res://Assets/Character/Walk/walk.png" id="5_hmggr"]
 [ext_resource type="Texture2D" uid="uid://l6mp2c75e3c2" path="res://Assets/Character/Walk/walk_left_down.png" id="6_1v5ml"]
 [ext_resource type="Texture2D" uid="uid://m7ndgan17ny3" path="res://Assets/Character/Walk/walk_right_down.png" id="7_yytyf"]
 [ext_resource type="Texture2D" uid="uid://cbcveqfam667" path="res://Assets/Character/Walk/walk_left_up.png" id="8_mwl8m"]
 [ext_resource type="Texture2D" uid="uid://8hctscowp436" path="res://Assets/Character/Walk/walk_right_up.png" id="9_8td47"]
-[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://Components/health/scripts/hitbox.gd" id="10_hacra"]
+[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://components/health/scripts/hitbox.gd" id="10_hacra"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j4wcn"]
 radius = 5.5
@@ -601,7 +601,7 @@ shape = SubResource("CapsuleShape2D_j4wcn")
 position = Vector2(0, -24)
 scale = Vector2(0.719, 2.109)
 sprite_frames = SubResource("SpriteFrames_kxat5")
-animation = &"walk_down_right"
+animation = &"walk_up_left"
 autoplay = "idle_right"
 
 [node name="HitBox" type="Area2D" parent="." unique_id=856455395]

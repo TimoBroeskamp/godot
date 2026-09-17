@@ -1,0 +1,235 @@
+@startuml test
+
+skinparam ranksep 60
+skinparam nodesep 40
+skinparam linetype ortho
+skinparam padding 4
+
+rectangle "Game" {
+
+' ---------- Kernklassen ----------
+class Player
+Player : _ready()
+Player : _on_death()
+Player : _physics_process()
+Player : get_8way_direction()
+Player : get_input()
+
+abstract class Enemy {
+    _ready()
+    _on_death()
+    _physics_process()
+    move_to_player()
+}
+
+class Slime
+Slime : _on_death()
+
+class test_dummy
+test_dummy : _on_health_health_depleted()
+
+class Ghost
+Ghost : _on_death()
+
+Enemy <|-- Slime
+Enemy <|-- test_dummy
+Enemy <|-- Ghost
+
+class enemy_spawner
+enemy_spawner : _ready()
+enemy_spawner : _process()
+enemy_spawner : _on_spawn_tick()
+enemy_spawner : _pick_enemy()
+enemy_spawner : _spawn_from_pool()
+enemy_spawner : _get_valid_spawn_point()
+enemy_spawner : _on_enemy_died()
+enemy_spawner : _activate()
+enemy_spawner : _deactivate()
+
+class healthbar
+healthbar : init_health()
+healthbar : _set_health()
+healthbar : _on_timer_timeout()
+
+class hitbox
+hitbox : set_damage()
+hitbox : get_damage()
+
+class hurtbox
+hurtbox : _ready()
+hurtbox : _on_area_entered()
+
+class Navigation
+Navigation : _ready()
+Navigation : _physics_process()
+
+class stats {
+    max_health : float
+    immortality : bool
+    damage : float
+    movement_speed : float
+    attack_speed : float
+    ..
+    set_max_health()
+    get_max_health()
+    set_immortality()
+    get_immortality()
+    set_temporary_immortality()
+    set_health()
+    get_health()
+    set_damage()
+    get_damage()
+    set_movement_speed()
+    get_movement_speed()
+    set_attack_speed()
+    get_attack_speed()
+}
+
+class enemyWeight {
+    min_difficulty : float
+    max_difficulty : float
+    spawn_weight : float
+    difficulty_cost : float
+}
+
+class Bullet {
+    speed : int
+    target_position : Vector2
+    despawn_time : int
+    --
+    _ready()
+    _physics_process()
+}
+
+abstract class Weapon {
+    shoot()
+}
+
+class Gun
+Weapon <|-- Gun
+
+class Gun_2
+Weapon <|-- Gun_2
+
+class GlobalData {
+    World : Node
+    Player : Player
+}
+
+class LevelSystem {
+    current_level : int
+    current_exp : int
+    exp_to_next_level : int
+    --
+    add_exp(amount : int)
+    level_up()
+}
+
+class CardPool {
+    available_cards : Array[Card]
+    --
+    get_random_cards(n : int) : Array[Card]
+}
+
+class Card {
+    title : String
+    description : String
+    stat_target : String
+    value : float
+    --
+    apply(target_stats : stats)
+}
+
+Player *-- LevelSystem
+LevelSystem --> CardPool : zieht Karten
+CardPool "1" *-- "many" Card
+
+Enemy ..> LevelSystem : signalisiert Tod\n(exp_value)
+
+' ---------- Beziehungen (Game intern) ----------
+
+Player *-- stats
+Enemy *-- stats
+
+Player *-- hitbox
+Enemy *-- hitbox
+Enemy *-- hurtbox
+Bullet *-- hurtbox
+
+Enemy *-- healthbar
+Enemy --> Navigation : nutzt
+
+enemy_spawner --> enemyWeight : nutzt zur Gewichtung
+enemy_spawner ..> Enemy : erzeugt (spawn)
+Enemy ..> enemy_spawner : signalisiert Tod\n(_on_enemy_died)
+
+Weapon ..> Bullet : erzeugt
+Player *-- Weapon
+
+Player *-- LevelSystem
+LevelSystem --> CardPool : zieht Karten
+CardPool "1" *-- "many" Card
+
+}
+
+rectangle "UI / Screens" {
+
+    class SceneManager {
+        current_state : GameState
+        --
+        start_game()
+        pause_game()
+        resume_game()
+        end_game()
+        go_to_main_menu()
+        restart()
+    }
+
+    class StartScreen {
+        _on_start_pressed()
+        _on_quit_pressed()
+    }
+
+    class PauseScreen {
+        _ready()
+        _on_resume_pressed()
+        _on_quit_to_menu_pressed()
+        toggle()
+    }
+
+    class EndScreen {
+        _ready()
+        _on_restart_pressed()
+        _on_quit_pressed()
+        show_result(score : int)
+    }
+
+    class CardSelectionScreen {
+    offered_cards : Array[Card]
+    --
+    _ready()
+    _on_card_selected(card : Card)
+    }
+}
+
+' ---------- Beziehungen (UI <-> Game) ----------
+
+StartScreen ..> SceneManager : start_game()
+PauseScreen ..> SceneManager : pause_game() / resume_game()
+EndScreen ..> SceneManager : restart() / go_to_main_menu()
+
+SceneManager ..> Player : pausiert / signalisiert
+SceneManager <.. Player : signalisiert Tod (Game Over)
+
+GlobalData <.. Player : liest/schreibt
+GlobalData <.. enemy_spawner : liest/schreibt
+GlobalData <.. SceneManager : liest World/Player-Referenz
+
+LevelSystem ..> SceneManager : level_up() → pause_game()
+SceneManager ..> CardSelectionScreen : öffnet
+CardSelectionScreen ..> Card : ruft apply()
+Card ..> stats : ändert Werte
+
+@enduml
+
+' Alt + D to show it '

@@ -6,7 +6,7 @@ extends Node2D
 @export var min_spawn_distance: float = 700.0
 @export var pool_size: int = 100
 
-@export var enemy_pool: Array[EnemyData] = []          # assign your .tres files here
+@export var enemy_pool: Array[enemyWeight] = []          # assign your .tres files here
 @export var difficulty_curve: Curve                     # x: 0-1 normalized time, y: difficulty value
 @export var spawn_budget_curve: Curve                   # x: 0-1 normalized time, y: budget per tick
 @export var run_duration: float = 600.0                 # seconds to reach max difficulty
@@ -14,7 +14,7 @@ extends Node2D
 
 var elapsed: float = 0.0
 var current_difficulty: float = 0.0
-var pools: Dictionary = {}       # EnemyData -> Array[Node2D] (per-type pools, since each type differs)
+var pools: Dictionary = {}       # enemyWeight -> Array[Node2D] (per-type pools, since each type differs)
 var active_enemies: Array[Node2D] = []
 var spawn_timer: float = 0.0
 
@@ -51,8 +51,8 @@ func _on_spawn_tick(t: float) -> void:
 			continue  # that type's pool was empty, try again / different pick next loop
 		budget -= data.difficulty_cost
 
-func _pick_enemy(difficulty: float) -> EnemyData:
-	var valid: Array[EnemyData] = []
+func _pick_enemy(difficulty: float) -> enemyWeight:
+	var valid: Array[enemyWeight] = []
 	var total_weight := 0.0
 	for data in enemy_pool:
 		if difficulty >= data.min_difficulty and difficulty <= data.max_difficulty:
@@ -69,7 +69,7 @@ func _pick_enemy(difficulty: float) -> EnemyData:
 			return data
 	return valid[-1]
 
-func _spawn_from_pool(data: EnemyData) -> bool:
+func _spawn_from_pool(data: enemyWeight) -> bool:
 	var pool_array: Array[Node2D] = pools[data]
 	if pool_array.is_empty():
 		push_warning("Pool exhausted for %s, consider raising pool_size" % data.scene.resource_path)
@@ -90,7 +90,7 @@ func _get_valid_spawn_point() -> Vector2:
 	push_warning("No valid spawn point found after 30 tries")
 	return player.global_position
 
-func _on_enemy_died(enemy: Node2D, data: EnemyData) -> void:
+func _on_enemy_died(enemy: Node2D, data: enemyWeight) -> void:
 	active_enemies.erase(enemy)
 	_deactivate(enemy)
 	pools[data].append(enemy)
