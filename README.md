@@ -10,3 +10,7 @@
 - [ ] add Levels
 - [ ] add 3 simple augments
 - [ ] add 2 more generic enemys
+
+## Class Diagram
+
+![Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/TimoBroeskamp/godot/main/Klassendiagramm.uml)
