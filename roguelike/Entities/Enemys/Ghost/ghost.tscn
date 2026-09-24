@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cnn2g4mtwdcwc"]
+
+[ext_resource type="Script" uid="uid://cy2lwblrxhlg1" path="res://components/health/scripts/stats.gd" id="1_2rch3"]
+[ext_resource type="Script" uid="uid://n5yh48xc6gxj" path="res://Entities/Enemys/Ghost/ghost.gd" id="1_dqhbe"]
+[ext_resource type="Texture2D" uid="uid://d20db1q8afhkx" path="res://Assets/Ghost/Ghost-move-down-animation.png" id="2_nam8j"]
+[ext_resource type="PackedScene" uid="uid://c2aa3pkgxkjxw" path="res://components/health/scenes/Navigation.tscn" id="3_kyf8m"]
+[ext_resource type="Script" uid="uid://bxhjin8jclsyl" path="res://components/health/scripts/hurtbox.gd" id="3_nam8j"]
+[ext_resource type="PackedScene" uid="uid://ddbvjxwfqby4i" path="res://components/health/scenes/healthbar.tscn" id="4_dqhbe"]
+[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://components/health/scripts/hitbox.gd" id="4_xc36f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u33sy"]
+radius = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc36f"]
+atlas = ExtResource("2_nam8j")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o885t"]
+atlas = ExtResource("2_nam8j")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyf8m"]
+atlas = ExtResource("2_nam8j")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqhbe"]
+atlas = ExtResource("2_nam8j")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c348c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc36f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o885t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyf8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqhbe")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c348c"]
+radius = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oal8i"]
+radius = 12.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=22818052]
+motion_mode = 1
+script = ExtResource("1_dqhbe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1469705053]
+shape = SubResource("CapsuleShape2D_u33sy")
+
+[node name="Stats" type="Node" parent="." unique_id=1389067803]
+script = ExtResource("1_2rch3")
+max_health = 20.0
+damage = 2.0
+movement_speed = 160.0
+metadata/_custom_type_script = "uid://cy2lwblrxhlg1"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1050294775]
+scale = Vector2(1.8, 1.8)
+sprite_frames = SubResource("SpriteFrames_c348c")
+animation = &"Idle"
+frame_progress = 0.61950564
+
+[node name="Navigation" parent="." unique_id=630751184 instance=ExtResource("3_kyf8m")]
+
+[node name="Healthbar" parent="." unique_id=1101186783 instance=ExtResource("4_dqhbe")]
+offset_left = -17.0
+offset_top = -24.0
+offset_right = 17.0
+offset_bottom = -19.0
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=624500368]
+script = ExtResource("3_nam8j")
+metadata/_custom_type_script = "uid://bxhjin8jclsyl"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=535879719]
+shape = SubResource("CapsuleShape2D_c348c")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=2019417130]
+script = ExtResource("4_xc36f")
+metadata/_custom_type_script = "uid://oara1kagvgii"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=767732841]
+shape = SubResource("CapsuleShape2D_oal8i")

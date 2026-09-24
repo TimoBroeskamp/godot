@@ -40,6 +40,14 @@ position = Vector2(0, 7)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_5ih8n")
 
+[node name="Navigation" parent="." unique_id=630751184 instance=ExtResource("7_qbvbl")]
+
+[node name="Healthbar" parent="." unique_id=1609775975 instance=ExtResource("5_x1bcm")]
+offset_left = -17.0
+offset_top = -24.0
+offset_right = 17.0
+offset_bottom = -19.0
+
 [node name="HurtBox" type="Area2D" parent="." unique_id=1140174567 node_paths=PackedStringArray("health")]
 collision_layer = 4
 collision_mask = 8
@@ -50,12 +58,6 @@ metadata/_custom_type_script = "uid://bxhjin8jclsyl"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=616725486]
 shape = SubResource("CircleShape2D_7ett0")
 
-[node name="Healthbar" parent="." unique_id=1609775975 instance=ExtResource("5_x1bcm")]
-offset_left = -17.0
-offset_top = -24.0
-offset_right = 17.0
-offset_bottom = -19.0
-
 [node name="HitBox" type="Area2D" parent="." unique_id=1309853359]
 collision_layer = 2
 collision_mask = 32
@@ -64,5 +66,3 @@ metadata/_custom_type_script = "uid://oara1kagvgii"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1977356751]
 shape = SubResource("CircleShape2D_knpeo")
-
-[node name="Navigation" parent="." unique_id=630751184 instance=ExtResource("7_qbvbl")]
