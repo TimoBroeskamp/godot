@@ -40,7 +40,7 @@ shape = SubResource("CapsuleShape2D_7syxl")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1362445250 node_paths=PackedStringArray("health")]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 8
 script = ExtResource("4_xs73u")
 health = NodePath("../Stats")
 metadata/_custom_type_script = "uid://bxhjin8jclsyl"
@@ -62,8 +62,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1708226497]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("6_7syxl")
 metadata/_custom_type_script = "uid://oara1kagvgii"
 

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="enemyWeight" format=3 uid="uid://x1rxs8hdscvi"]
+
+[ext_resource type="PackedScene" uid="uid://cnn2g4mtwdcwc" path="res://Entities/Enemys/Ghost/ghost.tscn" id="1_kxoy1"]
+[ext_resource type="Script" uid="uid://bdwmhlf2koi80" path="res://Components/health/scripts/enemyWeight.gd" id="1_l7xgu"]
+
+[resource]
+script = ExtResource("1_l7xgu")
+scene = ExtResource("1_kxoy1")
+min_difficulty = 5.0
+spawn_weight = 2.0
+difficulty_cost = 4.0
+metadata/_custom_type_script = "uid://bdwmhlf2koi80"

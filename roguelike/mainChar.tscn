@@ -8,10 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://dkwvdtkxrtki2" path="res://Assets/TileMap/TX Plant with Shadow.png" id="6_ryysm"]
 [ext_resource type="Texture2D" uid="uid://dy03na7xkkhj0" path="res://Assets/TileMap/TX Props with Shadow.png" id="7_ecjii"]
 [ext_resource type="Texture2D" uid="uid://d2n20fxslwx6m" path="res://Assets/TileMap/TX Struct.png" id="8_j4wcn"]
-[ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://components/items/weapons/Gun.tscn" id="9_ecjii"]
-[ext_resource type="PackedScene" uid="uid://tcxg1h68lcyu" path="res://components/health/scenes/EnemySpawner.tscn" id="10_j4wcn"]
-[ext_resource type="Script" uid="uid://bdwmhlf2koi80" path="res://components/health/scripts/EnemyStats.gd" id="11_sel7t"]
-[ext_resource type="PackedScene" uid="uid://y2i2e21mhevq" path="res://Entities/Enemys/Slime/Slime.tscn" id="12_f7k75"]
+[ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://Components/items/weapons/Gun.tscn" id="9_ecjii"]
+[ext_resource type="PackedScene" uid="uid://tcxg1h68lcyu" path="res://Components/health/scenes/EnemySpawner.tscn" id="10_j4wcn"]
+[ext_resource type="Script" uid="uid://bdwmhlf2koi80" path="res://Components/health/scripts/enemyWeight.gd" id="11_sel7t"]
+[ext_resource type="Resource" uid="uid://028juhxk32ry" path="res://Entities/Enemys/Slime/slime_weight.tres" id="13_kxat5"]
+[ext_resource type="Resource" uid="uid://x1rxs8hdscvi" path="res://Entities/Enemys/Ghost/ghost_weight.tres" id="14_ljsbf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j4wcn"]
 
@@ -1017,13 +1018,10 @@ source_geometry_mode = 1
 source_geometry_group_name = &"nav_source"
 agent_radius = 15.0
 
-[sub_resource type="Resource" id="Resource_j4wcn"]
-script = ExtResource("11_sel7t")
-scene = ExtResource("12_f7k75")
-metadata/_custom_type_script = "uid://bdwmhlf2koi80"
-
-[sub_resource type="Curve" id="Curve_7vsoy"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_ljsbf"]
+_limits = [0.0, 10.0, 0.0, 0.01]
+bake_resolution = 50
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.01, 10), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_sel7t"]
@@ -1074,6 +1072,7 @@ navigation_polygon = SubResource("NavigationPolygon_o0kt2")
 [node name="EnemySpawner" parent="." unique_id=1688984499 node_paths=PackedStringArray("nav_region", "player") instance=ExtResource("10_j4wcn")]
 nav_region = NodePath("../NavigationRegion2D")
 player = NodePath("../Player")
-enemy_pool = Array[ExtResource("11_sel7t")]([SubResource("Resource_j4wcn")])
-difficulty_curve = SubResource("Curve_7vsoy")
+enemy_pool = Array[ExtResource("11_sel7t")]([ExtResource("13_kxat5"), ExtResource("14_ljsbf")])
+difficulty_curve = SubResource("Curve_ljsbf")
 spawn_budget_curve = SubResource("Curve_sel7t")
+run_duration = 6000.0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="enemyWeight" format=3 uid="uid://028juhxk32ry"]
+
+[ext_resource type="PackedScene" uid="uid://y2i2e21mhevq" path="res://Entities/Enemys/Slime/Slime.tscn" id="1_3ema3"]
+[ext_resource type="Script" uid="uid://bdwmhlf2koi80" path="res://Components/health/scripts/enemyWeight.gd" id="1_mn7kf"]
+
+[resource]
+script = ExtResource("1_mn7kf")
+scene = ExtResource("1_3ema3")
+max_difficulty = 1.0
+metadata/_custom_type_script = "uid://bdwmhlf2koi80"
