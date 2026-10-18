@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cbb36oac3hk81"]
+
+[ext_resource type="Script" uid="uid://jog8wtjly1dw" path="res://Components/health/scripts/HUD/player_healthbar.gd" id="1_gefo3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qysqr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inmiq"]
+bg_color = Color(0.8, 0.12941177, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qysqr"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0x0r"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Control" type="Control" unique_id=1150418983]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 241.0
+offset_bottom = 33.0
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=677715773]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_qysqr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_inmiq")
+value = 60.0
+show_percentage = false
+script = ExtResource("1_gefo3")
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressBar" unique_id=1551965784]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_qysqr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y0x0r")
+value = 80.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="ProgressBar" unique_id=17058887]
+wait_time = 0.3
+one_shot = true

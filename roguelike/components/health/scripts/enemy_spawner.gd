@@ -42,7 +42,6 @@ func _process(delta: float) -> void:
 func _on_spawn_tick(t: float) -> void:
 	var budget := spawn_budget_curve.sample(t)
 	var attempts := 0
-	print("difficulty", current_difficulty)
 	while budget > 0.0 and attempts < 20:  # attempt cap, avoid infinite loop if pools exhausted
 		attempts += 1
 		var data := _pick_enemy(current_difficulty)

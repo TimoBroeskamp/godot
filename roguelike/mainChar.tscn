@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://tcxg1h68lcyu" path="res://Components/health/scenes/EnemySpawner.tscn" id="10_j4wcn"]
 [ext_resource type="Script" uid="uid://bdwmhlf2koi80" path="res://Components/health/scripts/enemyWeight.gd" id="11_sel7t"]
 [ext_resource type="Resource" uid="uid://028juhxk32ry" path="res://Entities/Enemys/Slime/slime_weight.tres" id="13_kxat5"]
+[ext_resource type="PackedScene" uid="uid://cb1xqg6tkcb68" path="res://Components/health/scenes/HUD/player_experience_bar.tscn" id="14_04dnl"]
 [ext_resource type="Resource" uid="uid://x1rxs8hdscvi" path="res://Entities/Enemys/Ghost/ghost_weight.tres" id="14_ljsbf"]
+[ext_resource type="PackedScene" uid="uid://cbb36oac3hk81" path="res://Components/health/scenes/HUD/player_healthbar.tscn" id="15_42qyd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j4wcn"]
 
@@ -1076,3 +1078,27 @@ enemy_pool = Array[ExtResource("11_sel7t")]([ExtResource("13_kxat5"), ExtResourc
 difficulty_curve = SubResource("Curve_ljsbf")
 spawn_budget_curve = SubResource("Curve_sel7t")
 run_duration = 6000.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=877520715]
+offset = Vector2(20, 20)
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 20, 20)
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1301227838]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 174.0
+offset_bottom = 24.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=1487726342]
+layout_mode = 0
+offset_right = 173.0
+offset_bottom = 91.0
+
+[node name="Control" parent="CanvasLayer/Control/VBoxContainer" unique_id=1150418983 instance=ExtResource("14_04dnl")]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="Control2" parent="CanvasLayer/Control/VBoxContainer" unique_id=610626499 instance=ExtResource("15_42qyd")]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
