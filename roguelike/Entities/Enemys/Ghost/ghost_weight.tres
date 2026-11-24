@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="enemyWeight" format=3 uid="uid://x1rxs8hdscvi"]
 
 [ext_resource type="PackedScene" uid="uid://cnn2g4mtwdcwc" path="res://Entities/Enemys/Ghost/ghost.tscn" id="1_kxoy1"]
-[ext_resource type="Script" uid="uid://bdwmhlf2koi80" path="res://Components/health/scripts/enemyWeight.gd" id="1_l7xgu"]
+[ext_resource type="Script" uid="uid://bdwmhlf2koi80" path="res://components/health/scripts/enemyWeight.gd" id="1_l7xgu"]
 
 [resource]
 script = ExtResource("1_l7xgu")

@@ -15,7 +15,6 @@ extends Node2D
 var elapsed: float = 0.0
 var current_difficulty: float = 0.0
 var pools: Dictionary = {}       # enemyWeight -> Array[Node2D] (per-type pools, since each type differs)
-var active_enemies: Array[Node2D] = []
 var spawn_timer: float = 0.0
 
 func _ready() -> void:
@@ -78,7 +77,6 @@ func _spawn_from_pool(data: enemyWeight) -> bool:
 	var enemy : Node2D = pool_array.pop_back()
 	enemy.global_position = _get_valid_spawn_point()
 	_activate(enemy)
-	active_enemies.append(enemy)
 	return true
 
 func _get_valid_spawn_point() -> Vector2:
@@ -91,7 +89,6 @@ func _get_valid_spawn_point() -> Vector2:
 	return player.global_position
 
 func _on_enemy_died(enemy: Node2D, data: enemyWeight) -> void:
-	active_enemies.erase(enemy)
 	_deactivate(enemy)
 	pools[data].append(enemy)
 

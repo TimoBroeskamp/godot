@@ -1,20 +1,18 @@
 [gd_scene format=4 uid="uid://d0tkiu652amdx"]
 
-[ext_resource type="PackedScene" uid="uid://dsjvkjsi8lxy7" path="res://Entities/Dummy/Dummy.tscn" id="3_jl3no"]
-[ext_resource type="Script" uid="uid://b7sqmru8qso8n" path="res://Entities/Dummy/dummy_spawner.gd" id="4_48qap"]
 [ext_resource type="Texture2D" uid="uid://ciyulnacdmmjp" path="res://Assets/TileMap/TX Tileset Stone Ground.png" id="5_hfd3q"]
 [ext_resource type="Texture2D" uid="uid://bkbko3rl2ih32" path="res://Assets/TileMap/TX Tileset Grass.png" id="5_u17qb"]
 [ext_resource type="PackedScene" uid="uid://c22xxvlaemtoe" path="res://Entities/Player/Player.tscn" id="6_hfd3q"]
 [ext_resource type="Texture2D" uid="uid://dkwvdtkxrtki2" path="res://Assets/TileMap/TX Plant with Shadow.png" id="6_ryysm"]
 [ext_resource type="Texture2D" uid="uid://dy03na7xkkhj0" path="res://Assets/TileMap/TX Props with Shadow.png" id="7_ecjii"]
 [ext_resource type="Texture2D" uid="uid://d2n20fxslwx6m" path="res://Assets/TileMap/TX Struct.png" id="8_j4wcn"]
-[ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://Components/items/weapons/Gun.tscn" id="9_ecjii"]
-[ext_resource type="PackedScene" uid="uid://tcxg1h68lcyu" path="res://Components/health/scenes/EnemySpawner.tscn" id="10_j4wcn"]
-[ext_resource type="Script" uid="uid://bdwmhlf2koi80" path="res://Components/health/scripts/enemyWeight.gd" id="11_sel7t"]
+[ext_resource type="PackedScene" uid="uid://bc56uvyukxswt" path="res://components/items/weapons/Gun.tscn" id="9_ecjii"]
+[ext_resource type="PackedScene" uid="uid://tcxg1h68lcyu" path="res://components/health/scenes/EnemySpawner.tscn" id="10_j4wcn"]
+[ext_resource type="Script" uid="uid://bdwmhlf2koi80" path="res://components/health/scripts/enemyWeight.gd" id="11_sel7t"]
 [ext_resource type="Resource" uid="uid://028juhxk32ry" path="res://Entities/Enemys/Slime/slime_weight.tres" id="13_kxat5"]
-[ext_resource type="PackedScene" uid="uid://cb1xqg6tkcb68" path="res://Components/health/scenes/HUD/player_experience_bar.tscn" id="14_04dnl"]
+[ext_resource type="PackedScene" uid="uid://cb1xqg6tkcb68" path="res://components/health/scenes/HUD/player_experience_bar.tscn" id="14_04dnl"]
 [ext_resource type="Resource" uid="uid://x1rxs8hdscvi" path="res://Entities/Enemys/Ghost/ghost_weight.tres" id="14_ljsbf"]
-[ext_resource type="PackedScene" uid="uid://cbb36oac3hk81" path="res://Components/health/scenes/HUD/player_healthbar.tscn" id="15_42qyd"]
+[ext_resource type="PackedScene" uid="uid://cbb36oac3hk81" path="res://components/health/scenes/HUD/player_healthbar.tscn" id="15_42qyd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j4wcn"]
 
@@ -1040,18 +1038,6 @@ floor_stop_on_slope = false
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=338579011]
 zoom = Vector2(1.3, 1.3)
-
-[node name="TestDummy" parent="." unique_id=1749184684 instance=ExtResource("3_jl3no")]
-position = Vector2(149, 117)
-scale = Vector2(2, 2)
-
-[node name="TestDummy2" parent="." unique_id=2060571951 instance=ExtResource("3_jl3no")]
-position = Vector2(153, 366)
-scale = Vector2(2, 2)
-
-[node name="Node2D" type="Node2D" parent="." unique_id=1937771430]
-position = Vector2(900, 135)
-script = ExtResource("4_48qap")
 
 [node name="TileMapLayerBackground" type="TileMapLayer" parent="." unique_id=1240119044 groups=["nav_source"]]
 z_index = -1

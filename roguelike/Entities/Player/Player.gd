@@ -1,11 +1,9 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hitbox: HitBox = $HitBox
 @onready var stats: Stats = $Stats
 
 func _ready() -> void:
-	hitbox.damage = stats.damage
 	stats.health_depleted.connect(_on_death)
 
 func _on_death() -> void:
@@ -31,7 +29,7 @@ func get_8way_direction(dir: Vector2) -> Vector2:
 		return Vector2.ZERO
 	var angle = dir.angle()  # radians, -PI to PI
 	# Snap to nearest 45° increment
-	var input_snapped: int = round(angle / (PI / 4)) * (PI / 4)
+	var input_snapped: float = round(angle / (PI / 4)) * (PI / 4)
 	return Vector2(cos(input_snapped), sin(input_snapped)).snapped(Vector2.ONE)
 	
 

@@ -1,12 +1,9 @@
 extends Node2D
 
-@export var target: Node2D  # assign the Player node in the Inspector
+@onready var target: Node2D = get_node("../Player")
 
 var can_shoot: bool = true
 var shoot_timer: float = 0.0
-
-func _ready() -> void:
-	target = get_node("../Player")
 
 func _physics_process(delta: float) -> void:
 	if target:

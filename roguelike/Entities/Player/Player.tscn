@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://m7ndgan17ny3" path="res://Assets/Character/Walk/walk_right_down.png" id="7_yytyf"]
 [ext_resource type="Texture2D" uid="uid://cbcveqfam667" path="res://Assets/Character/Walk/walk_left_up.png" id="8_mwl8m"]
 [ext_resource type="Texture2D" uid="uid://8hctscowp436" path="res://Assets/Character/Walk/walk_right_up.png" id="9_8td47"]
-[ext_resource type="Script" uid="uid://oara1kagvgii" path="res://components/health/scripts/hitbox.gd" id="10_hacra"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j4wcn"]
 radius = 5.5
@@ -567,9 +566,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jynvv"]
-size = Vector2(8.423916, 45.000008)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmeus"]
 size = Vector2(8.423916, 45)
 
@@ -604,16 +600,9 @@ sprite_frames = SubResource("SpriteFrames_kxat5")
 animation = &"walk_up_left"
 autoplay = "idle_right"
 
-[node name="HitBox" type="Area2D" parent="." unique_id=856455395]
-script = ExtResource("10_hacra")
-metadata/_custom_type_script = "uid://oara1kagvgii"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=311129010]
-position = Vector2(-0.136, -24.5)
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_jynvv")
-
 [node name="HurtBox" type="Area2D" parent="." unique_id=719092025 node_paths=PackedStringArray("health")]
+collision_layer = 32
+collision_mask = 16
 script = ExtResource("1_jynvv")
 health = NodePath("../Stats")
 metadata/_custom_type_script = "uid://bxhjin8jclsyl"
