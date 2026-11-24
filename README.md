@@ -4,8 +4,8 @@
 - [x] fix the gun rotation bug
 - [x] add auto-shoot, attack speed to the character
 - [x] add a basic enemy that moves towards you
-- [ ] enemy deals damage
-- [ ] add spawning logic
+- [x] enemy deals damage
+- [x] add spawning logic
 - [ ] add HUD(Pause screen and Main screen)
 - [ ] add Levels
 - [ ] add 3 simple augments
